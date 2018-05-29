@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Http\Controllers\Auth;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+class RegisterController extends Controller
+{
+    /**
+     * Register
+     * 
+     * @return view
+     */
+    public function index()
+    {
+        return view('auth.register');
+    }
+}
