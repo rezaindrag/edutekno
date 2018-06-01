@@ -2,7 +2,7 @@
     <div class="sidebar-stick">
         <div class="card list-contents">
             <div class="card-header bg-light">
-                <a class="navbar-brand logo text-success m-0 p-0" href="/">
+                <a class="navbar-brand logo text-info m-0 p-0" href="/">
                     edutekno
                 </a>
             </div>

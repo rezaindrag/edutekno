@@ -60,7 +60,7 @@ option {
 	height: 66px;
 }
 .nav-link, .dropdown-item {
-	font-weight: 200;
+	font-weight: 500;
 }
 .avatar {
 	height: 45px;
@@ -359,7 +359,6 @@ option {
 	font-weight: 500;
 }
 .title-attrs {
-	font-weight: 200;
 	font-family: 'Gotham Rounded';
 	font-size: 18px;
 }
@@ -404,9 +403,9 @@ option {
 }
 
 /*custom bootstrap*/
-/*.card {
-	overflow: hidden;
-}*/
+.dropdown-toggle::after {
+	margin-left: 0;
+}
 .text-success {
 	color: #74c042 !important;
 }

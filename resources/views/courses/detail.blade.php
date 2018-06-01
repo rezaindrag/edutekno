@@ -14,7 +14,7 @@
                 <div class="col-md-8 py-5">
                     <h1 class="mb-2 text-light">{{ $course->title }}</h1>
                     <p class="m-0 text-light" style="font-size: 15px">
-                        <span class="text-light">Instruktur:</span> <a href="" class="text-success">{{ $course->instructor->name }}</a></span>
+                        <span class="text-light">Instruktur:</span> <a href="" class="text-info">{{ $course->instructor->name }}</a></span>
                         <span class="mx-1"></span>
                         <span class="text-light">Diperbarui:</span> <span class="text-light">{{ strftime('%B %Y', strtotime($course->updated_at)) }}</span>
                         <span class="mx-1"></span>
@@ -46,27 +46,27 @@
                         <div class="card-body bg-light">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item border-0 p-0 bg-light">
-                                    <i class="fa fa-check text-success mr-1"></i> 
+                                    <i class="fa fa-check text-info mr-1"></i> 
                                     Total durasi 1.5h
                                 </li>
                                 <li class="list-group-item border-0 p-0 bg-light">
-                                    <i class="fa fa-check text-success mr-1"></i> 
+                                    <i class="fa fa-check text-info mr-1"></i> 
                                     56 HD video
                                 </li>
                                 <li class="list-group-item border-0 p-0 bg-light">
-                                    <i class="fa fa-check text-success mr-1"></i> 
+                                    <i class="fa fa-check text-info mr-1"></i> 
                                     7 artikel
                                 </li>
                                 <li class="list-group-item border-0 p-0 bg-light">
-                                    <i class="fa fa-check text-success mr-1"></i> 
+                                    <i class="fa fa-check text-info mr-1"></i> 
                                     Akses selamanya
                                 </li>
                                 <li class="list-group-item border-0 p-0 bg-light">
-                                    <i class="fa fa-check text-success mr-1"></i> 
+                                    <i class="fa fa-check text-info mr-1"></i> 
                                     Akses via web
                                 </li>
                                 <li class="list-group-item border-0 p-0 bg-light">
-                                    <i class="fa fa-check text-success mr-1"></i> 
+                                    <i class="fa fa-check text-info mr-1"></i> 
                                     23 kuis &amp; 12 tugas
                                 </li>
                             </ul>
@@ -92,7 +92,7 @@
                             <ul class="list-group list-group-flush d-flex flex-row flex-wrap justify-content-between">
                                 @foreach($course->subjects as $subject)
                                     <li class="list-group-item col-6 border-0 px-0 pt-0 pb-1">
-                                        <span><i class="fa fa-check text-success mr-2"></i> {{ $subject }}</span>
+                                        <span><i class="fa fa-check text-info mr-2"></i> {{ $subject }}</span>
                                     </li>
                                 @endforeach
                             </ul>
@@ -103,16 +103,17 @@
                         @foreach($course->lessons as $lesson)
                             <div class="card mb-2">
                                 <div class="card-body">
-                                    <h5 class="mb-2" style="font-weight: 100">{{ $lesson->name }}</h5>
+                                    <h5 class="mb-2 text-secondary">{{ $lesson->name }}</h5>
                                     <p class="mb-2">{{ $lesson->description }}</p>
                                     @foreach($lesson->videos as $video)
                                         <ul class="list-group list-group-flush">
-                                            <li href="" class="list-group-item border-0 px-0 pt-0 pb-1 d-flex flex-row">
+                                            <li href="" class="list-group-item border-top-0 px-0 py-1 d-flex flex-row">
                                                 <div class="d-flex justify-content-center align-items-center" style="width: 30px">
-                                                    <i class="fa fa-play-circle text-success mr-2"></i>
+                                                    <i class="fa fa-play-circle text-secondary mr-2"></i>
                                                 </div>
-                                                <div style="flex: 1">
-                                                    <span class="text-secondary">{{ $video->title }}</span>
+                                                <div class="d-flex justify-content-between align-items-center" style="flex: 1">
+                                                    <span class="text-dark">{{ $video->title }}</span>
+                                                    <span class="text-secondary">{{ $video->duration }}</span>
                                                 </div>
                                             </li>
                                         </ul>
@@ -122,16 +123,26 @@
                         @endforeach
                     </div>
                     <div class="mb-3">
-                        <h5 class="mb-2">Profil Instruktur</h5>
+                        <h5 class="mb-2">Tentang Instruktur</h5>
                         <div class="row mt-3">
                             <div class="col-md-3 d-flex flex-column align-items-center">
                                 <img class="rounded-circle" src="https://randomuser.me/api/portraits/men/49.jpg" alt="">
-                                <a href="" class="text-secondary text-center">{{ $course->instructor->name }}</a>
+                                <a href="" class="text-secondary text-center"><strong>{{ $course->instructor->name }}</strong></a>
                             </div>
                             <div class="col-md-9">
-                                <p>{{ $course->instructor->name }}</p>
-                                <a href="" class="text-success"><i class="fab fa-twitter"></i> @rezaindra</a>&nbsp;
-                                <a href="" class="text-success"><i class="fa fa-link"></i> rezaindra.com</a>
+                                <p>{{ $course->instructor->biodata }}</p>
+                                @if ($course->instructor->web)
+                                    <p class="mb-0"><a href="" class="text-info"><i class="fa fa-link"></i> {{ $course->instructor->web }}</a></p>
+                                @endif
+                                @if ($course->instructor->facebook)
+                                    <p class="mb-0"><a href="" class="text-info"><i class="fab fa-facebook"></i> {{ $course->instructor->facebook }}</a></p>
+                                @endif
+                                @if ($course->instructor->twitter)
+                                    <p class="mb-0"><a href="" class="text-info"><i class="fab fa-twitter"></i> {{ $course->instructor->twitter }}</a></p>
+                                @endif
+                                @if ($course->instructor->linkedin)
+                                    <p class="mb-0"><a href="" class="text-info"><i class="fab fa-linkedin"></i> {{ $course->instructor->linkedin }}</a></p>
+                                @endif
                             </div>
                         </div>
                     </div>

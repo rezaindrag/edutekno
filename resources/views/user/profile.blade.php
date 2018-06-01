@@ -10,7 +10,7 @@
 			<div class="row">
 				<div class="col-3">
 					<div class="list-group list-group-flush nav-user mb-3">
-						<a href="" class="list-group-item border-0 bg-success text-white">Kursus</a>
+						<a href="" class="list-group-item border-0 bg-info text-white">Kursus</a>
 						<a href="" class="list-group-item border-0 bg-light text-secondary">Profil</a>
 						<a href="" class="list-group-item border-0 bg-light text-secondary">Akun</a>
 						<a href="" class="list-group-item border-0 bg-light text-danger">Logout</a>

@@ -1,6 +1,6 @@
 <div class="container-fluid content bg-light py-4">
 	<div class="container home">
-		<h4 class="mb-4 section-header text-secondary" id="top-courses">Kursus Terbaru &amp; Popular</h4>
+		<h4 class="mb-3 section-header text-secondary" id="top-courses">Kursus Terbaru &amp; Popular</h4>
 		<div class="row">
 			<div class="col-md-12 d-flex flex-wrap flex-row justify-content-between">
 				@foreach ($courses as $course)
@@ -20,7 +20,7 @@
 			</div>
 		</div>
 		<div class="d-flex justify-content-start align-items-start">
-			<a href="/?page=courses" class="text-success">Lihat Semua Kursus <i class="fa fa-angle-right" style="font-size: 13px"></i></a>
+			<a href="/?page=courses" class="text-info">Lihat Semua Kursus <i class="fa fa-angle-right" style="font-size: 13px"></i></a>
 		</div>
 	</div>
 </div>

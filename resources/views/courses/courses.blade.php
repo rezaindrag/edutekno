@@ -23,7 +23,7 @@
 							<div class="input-group input-group-lg">
 								<input type="text" class="form-control" name="q" placeholder="Cari Kursus &amp; Tutorial">
 								<div class="input-group-append">
-									<button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
+									<button class="btn btn-info" type="submit"><i class="fa fa-search"></i></button>
 								</div>
 							</div>
 						</form>
@@ -33,9 +33,7 @@
 					<div class="col-md-3">
 						<div class="search-attrs mb-4">
 							<div class="list-group list-group-flush">
-								<div class="d-flex flex-row align-items-center mb-1">
-									<span class="list-group-item bg-light text-success title-attrs">Skill Level</span>
-								</div>
+								<h5 class="list-group-item bg-light text-info title-attrs mb-2">Skill Level</h5>
 								{{-- Level --}}
 								@foreach($skillLevels as $level)
 									<div class="list-group-item list-search-attrs d-flex flex-row align-items-center mb-1">
@@ -48,9 +46,7 @@
 						</div>
 						<div class="search-attrs mb-4">
 							<div class="list-group list-group-flush">
-								<div class="d-flex flex-row align-items-center mb-1">
-									<span class="list-group-item bg-light text-success title-attrs">Topik &amp; Kategori</span>
-								</div>
+								<h5 class="list-group-item bg-light text-info title-attrs mb-2">Topik &amp; Kategori</h5>
 								{{-- Topik --}}
 								@foreach($topics as $topic)
 									<div class="list-group-item list-search-attrs d-flex flex-row align-items-center mb-1">
@@ -63,9 +59,7 @@
 						</div>
 						<div class="search-attrs mb-4">
 							<ul class="list-group list-group-flush">
-								<div class="d-flex flex-row align-items-center mb-1">
-									<span class="list-group-item bg-light text-success title-attrs">Software &amp; Tools</span>
-								</div>
+								<h5 class="list-group-item bg-light text-info title-attrs mb-2">Software &amp; Tools</h5>
 								{{-- Software --}}
 								@foreach($softwares as $software)
 									<div class="list-group-item list-search-attrs d-flex flex-row align-items-center mb-1">

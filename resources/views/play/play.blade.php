@@ -5,7 +5,7 @@
     <div class="sidebar-stick">
       <div class="card list-contents">
         <div class="card-header bg-light">
-          <a href="/" class="text-success"><i class="fa fa-angle-left"></i> Back to Dashboard</a>
+          <a href="/" class="text-info"><i class="fa fa-angle-left"></i> Back to Dashboard</a>
           <h4 class="mb-0 title">
             Membuat Apps dengan React Native &amp; Laravel
           </h4>
@@ -61,7 +61,7 @@
           <div class="card-body p-3">
             <div class="row">
               <div class="col-md-3">
-                <a href="" class="btn btn-link d-flex justify-content-start align-items-center text-success">
+                <a href="" class="btn btn-link d-flex justify-content-start align-items-center text-info">
                   <i class="fa fa-arrow-left mr-2"></i> <span>Prev</span>
                 </a>
               </div>
@@ -69,7 +69,7 @@
                 <p class="play-title m-0">Introduction</p>
               </div>
               <div class="col-md-3">
-                <a href="" class="btn btn-link d-flex justify-content-end align-items-center text-success">
+                <a href="" class="btn btn-link d-flex justify-content-end align-items-center text-info">
                   <span>Next</span> <i class="fa fa-arrow-right ml-2"></i>
                 </a>
               </div>

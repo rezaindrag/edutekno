@@ -7,7 +7,7 @@
                 <div class="sidebar-stick">
                     <div class="card list-contents">
                         <div class="card-header bg-light">
-                            <p class="mb-2"><a href="{{ url('quas-incidunt-exercitationem-distinctio-at') }}" class="text-success">&larr; Kembali</a></p>
+                            <p class="mb-2"><a href="{{ url('quas-incidunt-exercitationem-distinctio-at') }}" class="text-info">&larr; Kembali</a></p>
                             <p class="mb-0" style="font-weight: 500">Membuat Apps dengan React Native &amp; Laravel</p>
                         </div>
                         <div class="card-body p-0 pt-3 pb-2">
@@ -22,8 +22,8 @@
                             @endphp
                             @for($i = 1; $i <= 5; $i++)
                             <div class="mb-2">
-                                <h4 class="title-lesson mb-0 px-3" style="font-weight: 200">
-                                    <span class="text-success">Lesson {{$i}}:</span> <br>
+                                <h4 class="title-lesson mb-0 px-3">
+                                    <span class="text-info" style="font-style: 14px">Lesson {{$i}}:</span> <br>
                                     {{$title[$i]}}
                                 </h4>
                                 <div class="list-group list-video list-group-flush">
@@ -58,34 +58,16 @@
                 <!-- header -->
                 <div class="card classroom-header rounded-0 border-0" style="padding-left: 335.35px">
                     <div class="card-body py-0 px-4 d-flex align-items-center">
-                        <div class="row" style="flex: 1">
-                            <div class="col-md-3 d-flex justify-content-start align-items-center">
-                                <a href="" class="btn btn-link p-0 text-success">
-                                    <span>Prev</span>
-                                </a>
-                            </div>
-                            <div class="col-md-6 d-flex justify-content-center align-items-center">
-                                <p class="play-title m-0">Morbi leo risus</p>
-                            </div>
-                            <div class="col-md-3 d-flex justify-content-end align-items-center">
-                                <a href="" class="btn btn-link p-0 text-success">
-                                    <span>Next</span>
-                                </a>
-                            </div>
-                        </div>
+                        <p class="play-title m-0">Morbi leo risus</p>
                     </div>
                 </div>
                 <!-- header -->
                 <!-- content -->
                 <div class="classroom-content">
-                    <div class="card media-play mb-5">
+                    <div class="card mb-5">
                         <div class="card-body d-flex justify-content-center align-items-center p-0">
                             {{-- Video --}}
-                            <script src="https://fast.wistia.com/embed/medias/m4znkxaw4g.jsonp" async></script>
-                            <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
-                            <div class="wistia_embed wistia_async_m4znkxaw4g" style="height:100%;position:relative;width:100%">
-                                <div class="wistia_swatch" style="height:100%;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity 200ms;width:100%;"><img src="https://fast.wistia.com/embed/medias/m4znkxaw4g/swatch" style="filter:blur(5px);height:100%;object-fit:contain;width:100%;" alt="" onload="this.parentNode.style.opacity=1;" /></div>
-                            </div>
+                            <iframe id="vzvd-14747722" name="vzvd-14747722" title="vzaar video player" class="vzaar-video-player" type="text/html" width="100%" height="520" frameborder="0" allowFullScreen allowTransparency="true" mozallowfullscreen webkitAllowFullScreen src="//view.vzaar.com/14747722/player"></iframe>
                             {{-- Video --}}
                         </div>
                     </div>

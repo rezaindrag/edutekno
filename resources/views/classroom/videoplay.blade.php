@@ -7,7 +7,7 @@
                 <div class="sidebar-stick">
                     <div class="card list-contents">
                         <div class="card-header bg-light">
-                                <p class="mb-2"><a href="{{ url('classroom/mycourses/p') }}" class="text-success">&larr; Kembali</a></p>
+                                <p class="mb-2"><a href="{{ url('classroom/mycourses/p') }}" class="text-info">&larr; Kembali</a></p>
                             <p class="mb-0" style="font-weight: 500">Membuat Apps dengan React Native &amp; Laravel</p>
                         </div>
                         <div class="card-body p-0 pt-3 pb-2">
@@ -23,7 +23,7 @@
                             @for($i = 1; $i <= 5; $i++)
                             <div class="mb-2">
                                 <h4 class="title-lesson mb-0 px-3">
-                                    <span class="text-success">Lesson {{$i}}:</span> <br>
+                                    <span class="text-info">Lesson {{$i}}:</span> <br>
                                     {{$title[$i]}}
                                 </h4>
                                 <div class="list-group list-video list-group-flush">
@@ -60,7 +60,7 @@
                     <div class="card-body py-0 px-4 d-flex align-items-center">
                         <div class="row" style="flex: 1">
                             <div class="col-md-3 d-flex justify-content-start align-items-center">
-                                <a href="" class="btn btn-link p-0 text-success">
+                                <a href="" class="btn btn-link p-0 text-info">
                                     <span>Prev</span>
                                 </a>
                             </div>
@@ -68,7 +68,7 @@
                                 <p class="play-title m-0">Morbi leo risus</p>
                             </div>
                             <div class="col-md-3 d-flex justify-content-end align-items-center">
-                                <a href="" class="btn btn-link p-0 text-success">
+                                <a href="" class="btn btn-link p-0 text-info">
                                     <span>Next</span>
                                 </a>
                             </div>

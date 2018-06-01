@@ -23,12 +23,12 @@
                 </div>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-success btn-block btn-lg" value="Login">
+                <input type="submit" class="btn btn-info btn-block btn-lg" value="Masuk">
             </div>
         </form>
 
         <div class="d-flex flex-column justify-content-between align-items-center">
-            <span class="text-dark">Belum punya akun? <a href="{{ url('register') }}" class="text-success" style="font-weight: 500">Daftar</a></span>
+            <span class="text-dark">Belum punya akun? <a href="{{ url('register') }}" class="text-info" style="font-weight: 500">Daftar</a></span>
         </div>
     </div>
 @endsection

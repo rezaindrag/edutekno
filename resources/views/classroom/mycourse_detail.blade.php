@@ -20,7 +20,7 @@
                     <div>
                         <span class="text-secondary">Aktivitas Terakhir</span>
                         <h3>NodeJS Basic: Porta ac consectetur ac</h3>
-                        <a href="{{ url('classroom/play') }}" class="btn btn-outline-success">Lanjutkan Pembelajaran</a>
+                        <a href="{{ url('classroom/play') }}" class="btn btn-outline-info">Lanjutkan Pembelajaran</a>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                                     <ul class="list-group list-group-flush">
                                         <li href="" class="list-group-item border-0 px-0 pt-0 pb-1 d-flex flex-row">
                                             <div class="d-flex justify-content-center align-items-center" style="width: 30px">
-                                                <i class="fa fa-play-circle text-success mr-2"></i>
+                                                <i class="fa fa-play-circle text-info mr-2"></i>
                                             </div>
                                             <div style="flex: 1">
                                                 <span class="text-secondary">Cras justo odio</span>
@@ -53,7 +53,7 @@
                                         </li>
                                         <li href="" class="list-group-item border-0 px-0 pt-0 pb-1 d-flex flex-row">
                                             <div class="d-flex justify-content-center align-items-center" style="width: 30px">
-                                                <i class="fa fa-play-circle text-success mr-2"></i>
+                                                <i class="fa fa-play-circle text-info mr-2"></i>
                                             </div>
                                             <div style="flex: 1">
                                                 <span class="text-secondary">Dapibus ac facilisis in</span>
@@ -61,7 +61,7 @@
                                         </li>
                                         <li href="" class="list-group-item border-0 px-0 pt-0 pb-1 d-flex flex-row">
                                             <div class="d-flex justify-content-center align-items-center" style="width: 30px">
-                                                <i class="fa fa-play-circle text-success mr-2"></i>
+                                                <i class="fa fa-play-circle text-info mr-2"></i>
                                             </div>
                                             <div style="flex: 1">
                                                 <span class="text-secondary">Morbi leo risus</span>
@@ -69,7 +69,7 @@
                                         </li>
                                         <li href="" class="list-group-item border-0 px-0 pt-0 pb-1 d-flex flex-row">
                                             <div class="d-flex justify-content-center align-items-center" style="width: 30px">
-                                                <i class="fa fa-play-circle text-success mr-2"></i>
+                                                <i class="fa fa-play-circle text-info mr-2"></i>
                                             </div>
                                             <div style="flex: 1">
                                                 <span class="text-secondary">Porta ac consectetur ac</span>
@@ -77,7 +77,7 @@
                                         </li>
                                         <li href="" class="list-group-item border-0 px-0 pt-0 pb-1 d-flex flex-row">
                                             <div class="d-flex justify-content-center align-items-center" style="width: 30px">
-                                                <i class="fa fa-file-alt text-success mr-2"></i>
+                                                <i class="fa fa-file-alt text-info mr-2"></i>
                                             </div>
                                             <div style="flex: 1">
                                                 <span class="text-secondary">Vestibulum at eros</span>
