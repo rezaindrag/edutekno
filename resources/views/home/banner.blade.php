@@ -1,17 +1,13 @@
 <div class="container-fluid banner py-5 d-flex align-items-center">
 	<div class="container">
 		<div class="row d-flex justify-content-between">
-			<div class="col-md-7">
-				<h1 class="text-dark mb-2">Media Edukasi Teknologi Indonesia</h1>
-				<p class="m-0 text-secondary mb-4">Belajar Web &amp; Mobile Development, UX &amp; UI Design, Games Development, dll</p>
-				{!! Form::open(['url' => 'courses', 'method' => 'get']) !!}
-					<div class="input-group input-group-lg" style="width: 380px">
-						<input type="text" class="form-control" name="q" placeholder="Apa yang ingin anda pelajari?">
-						<div class="input-group-append">
-							<button class="btn btn-info" type="submit"><i class="fa fa-search"></i></button>
-						</div>
-					</div>
-				</form>
+			<div class="col-md-7 d-flex flex-column align-items-start">
+				<h1 class="display-5 mb-3 text-light">Media Edukasi Teknologi</h1>
+				<h4 class="m-0 mb-4 text-light">Tired of boring screencasts? We get it. That's why our focus on practical.</h4>
+				<div>
+					<a href="{{ url('courses') }}" class="btn btn-primary btn-lg px-4 mr-2">Lihat Kursus &rarr;</a>
+					{{-- <a href="{{ url('courses') }}" class="btn btn-light btn-lg px-4">Get Started</a> --}}
+				</div>
 			</div>
 			<div class="col-md-4"></div>
 		</div>

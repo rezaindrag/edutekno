@@ -10,7 +10,7 @@
     <!-- header -->
     <!-- content -->
     <div class="card classroom-content rounded-0 border-0 bg-light">
-        <div class="card-body pb-0 px-4 pt-4">
+        <div class="card-body p-4">
             <div class="card mb-4">
                 <div class="card-header">
                     <h3 class="m-0">Belajar NodeJS Basic</h3>
@@ -93,7 +93,7 @@
                     <div class="mb-4">
                         <h5 class="m-0">Q&amp;A</h5>
                         <p class="mb-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        <a href="" class="btn btn-primary">Posting pertanyaanmu!</a>
+                        <a href="" class="btn btn-info">Posting pertanyaanmu!</a>
                     </div>
                     <div>
                         <h5 class="m-0">Profil Intruktur</h5>

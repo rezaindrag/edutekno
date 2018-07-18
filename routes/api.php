@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 
 // Course
-Route::get('courses', 'Course\CourseApiController@index');
+Route::get('free-courses', 'Course\CourseApiController@index');
 
 // Category
 Route::get('categories', 'Category\CategoryApiController@index');

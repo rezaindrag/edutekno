@@ -77,7 +77,7 @@
 						</p>
 					</div>
 					<div class="card-footer bg-white py-3" style="width: 260px">
-						<a href="/?play" class="btn btn-info btn-block">Mulai Belajar <i class="fa fa-arrow-right ml-1" style="font-size: 13px"></i></a>
+						<a href="/?play" class="btn btn-primary btn-block">Mulai Belajar <i class="fa fa-arrow-right ml-1" style="font-size: 13px"></i></a>
 					</div>
 				</div>
 			<?php } ?>

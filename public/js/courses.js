@@ -65,13 +65,13 @@ $(document).ready(function() {
 
     // Functions
     function showItems(onFilter = false) {
-        console.log(level);
-        console.log(topic);
-        console.log(software);
+        // console.log(level);
+        // console.log(topic);
+        // console.log(software);
         
         var baseUrl = `http://localhost:8000/`,
-            webUrl = `${baseUrl}courses/`,
-            apiUrl = `${baseUrl}api/courses/`,
+            webUrl = `${baseUrl}free-courses/`,
+            apiUrl = `${baseUrl}api/free-courses/`,
             queryString, requestUrl;
 
         if (onFilter) {
@@ -97,13 +97,15 @@ $(document).ready(function() {
                 }
             }
 
-            requestUrl = apiUrl+queryString;
+            requestUrl = apiUrl+queryString; 
+            // console.log(requestUrl);
 
             $.ajax({
                 type: "GET",
                 url: requestUrl,
                 dataType: "html",
                 success: function(response){
+                    console.log(response);
                     $('#courses').empty();
                     $('#courses').append(response);
                     window.history.pushState(null, null, webUrl+queryString);

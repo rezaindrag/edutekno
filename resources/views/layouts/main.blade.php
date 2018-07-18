@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>edutekno</title>
-	{{-- <link href="{{ asset('assets/favicon.png') }}" rel="icon"> --}}
+	<link href="{{ asset('assets/favicon.png') }}" rel="icon">
 	<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 </head>
@@ -11,7 +11,9 @@
 	
 	@include('partials.nav')
 
-	@yield('breadcrumb')
+	{{-- @yield('breadcrumb') --}}
+
+	@yield('header')
 
 	@yield('content')
 	

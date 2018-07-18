@@ -27,8 +27,9 @@ class HomeController extends Controller
 		}
 
 		// Categories
-		$categories = Category::where('type', 'software')->limit(8)->inRandomOrder()->get();
+		$topics = Category::where('type', 'topic')->limit(8)->inRandomOrder()->get();
+		$softwares = Category::where('type', 'software')->limit(8)->inRandomOrder()->get();
 
-    	return view('home.home', compact('courses', 'categories'));
+    	return view('home.home', compact('courses', 'topics', 'softwares'));
     }
 }

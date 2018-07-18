@@ -1,17 +1,17 @@
-<div class="container-fluid content bg-light py-4">
+<div class="container-fluid content bg-light py-5">
 	<div class="container home">
-		<h4 class="mb-3 section-header text-secondary" id="top-courses">Kursus Terbaru &amp; Popular</h4>
-		<div class="row">
+        <div class="d-flex flex-column align-items-center mb-3">
+			<h4 class="mb-3 section-header text-secondary" id="top-courses">Free Courses</h4>
+            <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, nesciunt exercitationem quisquam minus.</p>
+        </div>
+		<div class="row mb-3">
 			<div class="col-md-12 d-flex flex-wrap flex-row justify-content-between">
 				@foreach ($courses as $course)
-					<div onclick="window.location.href='{{ url($course->slug) }}'" class="card post-container mb-3" style="width: 266px">
+					<div class="card post-container mb-3" style="width: 266px;">
 						<img class="post-thumb" src="{{ $course->banner }}" alt="">
 						<div class="card-body d-flex flex-column justify-content-between">
-							<span class="course-title text-dark mb-2">{{ $course->title }}</span>
-							<p class="post-attrs mb-2">
-								<span class="mr-2">{{ $course->total_lessons }} Lessons</span>
-								<span>{{ fmt_duration($course->total_duration) }}</span>
-							</p>
+							<a href="" class="course-title text-dark mb-2">{{ $course->title }}</a>
+							<p class="post-attrs mb-3"><span class="mr-2">15 Lessons</span><span></span></p>
 						</div>
 					</div>
 				@endforeach
@@ -19,9 +19,9 @@
 				<div style="width: 266px"></div>
 			</div>
 		</div>
-		<div class="d-flex justify-content-start align-items-start">
-			<a href="/?page=courses" class="text-info">Lihat Semua Kursus <i class="fa fa-angle-right" style="font-size: 13px"></i></a>
-		</div>
+        <div class="d-flex justify-content-center">
+			<a href="{{ url('free-courses') }}" class="btn btn-outline-primary rounded px-4">Lihat Semua</a>
+        </div>
 	</div>
 </div>
 

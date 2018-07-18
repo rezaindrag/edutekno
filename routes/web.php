@@ -23,6 +23,8 @@ Route::get('play', 'Play\PlayController@index');
 Route::get('user/profile', 'User\UserController@profile');
 
 // Courses
-Route::get('courses', 'Course\CourseController@index');
+Route::get('free-courses', 'Course\CourseController@index');
+Route::get('degree-program', 'Course\DegreeProgramController@index');
 Route::get('{slug}', 'Course\CourseController@show');
 Route::get('preview/{courseSlug}/{lessonSlug}/{videoSlug}', 'Course\CourseController@preview');
+Route::get('play/{courseSlug}/{lessonSlug}/{videoSlug}', 'Course\CourseController@play');

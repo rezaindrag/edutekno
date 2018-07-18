@@ -6,50 +6,52 @@
             <nav class="col-md-3 d-none d-md-block bg-light p-0 sidebar">
                 <div class="sidebar-stick">
                     <div class="card list-contents">
-                        <div class="card-header bg-light">
-                            <p class="mb-2"><a href="{{ url('quas-incidunt-exercitationem-distinctio-at') }}" class="text-info">&larr; Kembali</a></p>
-                            <p class="mb-0" style="font-weight: 500">Membuat Apps dengan React Native &amp; Laravel</p>
+                        <div class="card-header p-3 bg-light">
+                            <p class="mb-3"><a href="{{ url($course->slug) }}" class="text-primary" style="font-size: 14px"><i class="fa fa-arrow-left"></i> Kembali</a></p>
+                            <h5 class="m-0 text-dark">{{ $course->title }}</h5>
                         </div>
-                        <div class="card-body p-0 pt-3 pb-2">
-                            @php
-                                $title = [
-                                    1 => 'Introduction',
-                                    2 => 'NodeJS Basic',
-                                    3 => 'Installation Software',
-                                    4 => 'First Web App',
-                                    5 => 'RESTful API',
-                                ];
-                            @endphp
-                            @for($i = 1; $i <= 5; $i++)
-                            <div class="mb-2">
-                                <h4 class="title-lesson mb-0 px-3">
-                                    <span class="text-info" style="font-style: 14px">Lesson {{$i}}:</span> <br>
-                                    {{$title[$i]}}
-                                </h4>
-                                <div class="list-group list-video list-group-flush">
-                                    <a href="" class="list-group-item d-flex justify-content-between py-2">
-                                        <div class="list-video-icon"><i class="fa fa-play-circle mr-2 text-secondary"></i></div>
-                                        <div class="list-video-title text-dark">Cras justo odio</div>
-                                    </a>
-                                    <a href="" class="list-group-item d-flex justify-content-between py-2">
-                                        <div class="list-video-icon"><i class="fa fa-lock mr-2 text-secondary"></i></div>
-                                        <div class="list-video-title text-dark">Dapibus ac facilisis in</div>
-                                    </a>
-                                    <a href="" class="list-group-item d-flex justify-content-between py-2">
-                                        <div class="list-video-icon"><i class="fa fa-lock mr-2 text-secondary"></i></div>
-                                        <div class="list-video-title text-dark">Morbi leo risus</div>
-                                    </a>
-                                    <a href="" class="list-group-item d-flex justify-content-between py-2">
-                                        <div class="list-video-icon"><i class="fa fa-lock mr-2 text-secondary"></i></div>
-                                        <div class="list-video-title text-dark">Porta ac consectetur ac some borders and rounded corners</div>
-                                    </a>
-                                    <a href="" class="list-group-item d-flex justify-content-between py-2">
-                                        <div class="list-video-icon"><i class="fa fa-lock mr-2 text-secondary"></i></div> 
-                                        <div class="list-video-title text-dark">Vestibulum at eros</div>
-                                    </a>
+                        <div class="card-body p-3">
+                            @php $i = 1; @endphp
+                            @foreach($course->lessons as $lesson)
+                                <div class="mb-3">
+                                    <h5 class="mb-2 text-dark title-lesson" data-toggle="collapse" data-target="#lesson{{ $i }}">
+                                        <i class="fa fa-caret-right mr-1"></i> {{ $lesson->title }}
+                                    </h5>
+                                    <div id="lesson{{ $i }}" class="collapse show">
+                                        @foreach($lesson->videos as $video)
+                                            <div class="list-group list-video list-group-flush">
+                                                <a href="{{ url('preview/'.$course->slug.'/'.$lesson->slug.'/'.$video->slug) }}" class="list-group-item d-flex justify-content-between border-top-0 px-0 py-2">
+                                                    <div class="list-video-icon">
+                                                        @auth
+                                                            @if($course->price > 0)
+                                                                @if($video->locked == 1)
+                                                                    <i class="fa fa-lock mr-2 text-secondary"></i>
+                                                                @else
+                                                                    <i class="fa fa-play-circle mr-2 text-secondary"></i>
+                                                                @endif
+                                                            @else
+                                                                <i class="fa fa-play-circle mr-2 text-secondary"></i>
+                                                            @endif
+                                                        @endauth
+                                                        @guest
+                                                            @if($video->locked == 1)
+                                                                <i class="fa fa-lock mr-2 text-secondary"></i>
+                                                            @else
+                                                                <i class="fa fa-play-circle mr-2 text-secondary"></i>
+                                                            @endif
+                                                        @endguest
+                                                    </div>
+                                                    <div class="list-video-title d-flex justify-content-between">
+                                                        <p class="m-0 text-secondary">{{ $video->title }}</p>
+                                                        <span class="text-secondary">{{ $video->duration }}</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        @endforeach
+                                    </div>
                                 </div>
-                            </div>
-                            @endfor
+                            @php $i++; @endphp
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -58,23 +60,48 @@
                 <!-- header -->
                 <div class="card classroom-header rounded-0 border-0" style="padding-left: 335.35px">
                     <div class="card-body py-0 px-4 d-flex align-items-center">
-                        <p class="play-title m-0">Morbi leo risus</p>
+                        <h5 class="m-0 text-primary" style="font-weight: 500">
+                            <span class="text-secondary">{{ $lessonPlay->title }}:</span>
+                            {{ $videoPlay->title }}
+                        </h5>
                     </div>
                 </div>
                 <!-- header -->
                 <!-- content -->
-                <div class="classroom-content">
-                    <div class="card mb-5">
-                        <div class="card-body d-flex justify-content-center align-items-center p-0">
+                <div class="classroom-content pb-5">
+                    <div class="card mb-4">
+                        <div class="card-body video-play-container d-flex justify-content-center align-items-center p-0">
                             {{-- Video --}}
-                            <iframe id="vzvd-14747722" name="vzvd-14747722" title="vzaar video player" class="vzaar-video-player" type="text/html" width="100%" height="520" frameborder="0" allowFullScreen allowTransparency="true" mozallowfullscreen webkitAllowFullScreen src="//view.vzaar.com/14747722/player"></iframe>
+                            @auth
+                                @if($course->price > 0)
+                                    @if($videoPlay->locked == 1)
+                                        <button class="btn btn-primary btn-lg"><i class="fa fa-lock mr-1"></i> Video Locked</button>
+                                    @else
+                                        {!! $videoPlay->video_embed !!}
+                                    @endif
+                                @else
+                                    {!! $videoPlay->video_embed !!}
+                                @endif
+                            @endauth
+                            @guest
+                                @if($course->price > 0)
+                                    @if($videoPlay->locked == 1)
+                                        <button class="btn btn-primary btn-lg"><i class="fa fa-lock mr-1"></i> Video Locked</button>
+                                    @else
+                                        {!! $videoPlay->video_embed !!}
+                                    @endif
+                                @endif
+                            @endguest
                             {{-- Video --}}
                         </div>
                     </div>
                     <!-- description -->
-                    <div class="px-5 pt-1 pb-5">
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p> 
-                        <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+                    <div class="px-5 mb-4">
+                        {!! $videoPlay->description !!}    
+                    </div>
+                    <div class="px-5 d-flex flex-row justify-content-between">
+                        <a href="" class="btn btn-primary">Sebelumnya</a>
+                        <a href="" class="btn btn-primary">Selanjutnya</a>
                     </div>
                     <!-- description -->
                 </div>

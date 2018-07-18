@@ -57,8 +57,75 @@ class CourseController extends Controller
      * @param string $videoSlug
      * @return view
      */
-    public function preview($courseSlug, $lessonSlug, $videoSlug)
+    public function preview($courseSlug, $lessonSlug, $videoSlug, Course $course)
     {
-        return view('courses.preview');
+        $course = $course->where('slug', $courseSlug)
+                    ->with('instructor')
+                    ->with('lessons.videos')
+                    ->first();
+
+        // Lesson Play
+        $lessonPlay = $course->lessons->filter(function($lesson) use ($lessonSlug) {
+            return $lesson->slug == $lessonSlug;
+        })->first();
+        if (!$lessonPlay) {
+            abort(404);
+        }
+
+        // Video Play
+        $videoPlay = collect([]);
+        foreach ($course->lessons as $lesson) {
+            foreach ($lesson->videos as $video) {
+                if ($video->slug == $videoSlug) {
+                    $videoPlay->push($video);
+                }
+            }
+        }
+        $videoPlay = $videoPlay->first();
+        if (!$videoPlay) {
+            abort(404);
+        }
+
+        return view('courses.preview', compact('course', 'videoPlay', 'lessonPlay'));
+    }
+
+    /**
+     * Play Course
+     * 
+     * @param string $courseSlug
+     * @param string $lessonSlug
+     * @param string $videoSlug
+     * @return view
+     */
+    public function play($courseSlug, $lessonSlug, $videoSlug, Course $course)
+    {
+        $course = $course->where('slug', $courseSlug)
+                    ->with('instructor')
+                    ->with('lessons.videos')
+                    ->first();
+
+        // Lesson Play
+        $lessonPlay = $course->lessons->filter(function($lesson) use ($lessonSlug) {
+            return $lesson->slug == $lessonSlug;
+        })->first();
+        if (!$lessonPlay) {
+            abort(404);
+        }
+
+        // Video Play
+        $videoPlay = collect([]);
+        foreach ($course->lessons as $lesson) {
+            foreach ($lesson->videos as $video) {
+                if ($video->slug == $videoSlug) {
+                    $videoPlay->push($video);
+                }
+            }
+        }
+        $videoPlay = $videoPlay->first();
+        if (!$videoPlay) {
+            abort(404);
+        }
+
+        return view('courses.play', compact('course', 'videoPlay', 'lessonPlay'));
     }
 }

@@ -27,13 +27,16 @@ class CourseApiController extends BaseController
         $software = $request->query('software');
         $q = $request->query('q');
         
-        $queryStmt = "SELECT courses.* FROM courses "; 
-        $queryStmt .= "JOIN category_course catcour ON courses.id = catcour.course_id "; 
-        $queryStmt .= "JOIN categories ON categories.id = catcour.category_id "; 
-        $queryStmt .= "WHERE courses.deleted_at IS NULL ";
+        $stmt = "SELECT courses.*, ";
+        $stmt .= "(SELECT slug FROM lessons WHERE course_id = courses.id LIMIT 1) as lesson_slug, ";
+        $stmt .= "(SELECT slug FROM videos WHERE lesson_id = lessons.id LIMIT 1) as video_slug ";
+        $stmt .= "FROM courses JOIN category_course catcour ON catcour.course_id = courses.id ";
+        $stmt .= "JOIN categories ON categories.id = catcour.category_id ";
+        $stmt .= "JOIN lessons ON lessons.course_id = courses.id ";
+        $stmt .= "WHERE courses.deleted_at IS NULL";
 
         if ($q) {
-            $queryStmt .= "AND title LIKE '%$q%' OR description LIKE '%$q%' ";
+            $stmt .= " AND title LIKE '%$q%' OR description LIKE '%$q%' ";
         } else {
             if ($level) {
                 if (strpos($level, ',')) {
@@ -46,7 +49,7 @@ class CourseApiController extends BaseController
                 } else {
                     $level = "'$level'";
                 }
-                $queryStmt .= "AND level IN ($level) ";
+                $stmt .= " AND level IN ($level) ";
             }
             if ($topic && $software) {
                 if (strpos($topic, ',')) {
@@ -70,8 +73,8 @@ class CourseApiController extends BaseController
                     $software = "'$software'";
                 }
 
-                $queryStmt .= "AND (categories.slug IN ($topic) ";
-                $queryStmt .= "OR categories.slug IN ($software))";
+                $stmt .= " AND (categories.slug IN ($topic) ";
+                $stmt .= " OR categories.slug IN ($software)) ";
             } else {
                 if ($topic && !$software) {
                     if (strpos($topic, ',')) {
@@ -84,7 +87,7 @@ class CourseApiController extends BaseController
                     } else {
                         $topic = "'$topic'";
                     }
-                    $queryStmt .= "AND categories.slug IN ($topic) ";
+                    $stmt .= " AND categories.slug IN ($topic) ";
                 } else if (!$topic && $software) {
                     if (strpos($software, ',')) {
                         $softwares = explode(',', $software);
@@ -96,16 +99,21 @@ class CourseApiController extends BaseController
                     } else {
                         $software = "'$software'";
                     }
-                    $queryStmt .= "AND categories.slug IN ($software)";
+                    $stmt .= " AND categories.slug IN ($software) ";
                 }
             }
         }
 
-        // die($queryStmt);
+        // die($stmt);
 
-        $courses = collect(DB::select(DB::raw($queryStmt), $bindParams ?? []));
+        $courses = collect(DB::select(DB::raw($stmt), $bindParams ?? []));
 
         $courses = $courses->unique('id');
+
+        $courses->foo = 'bar';
+
+        // echo '<pre>';
+        // print_r($courses); die;
 
         $html = '';
         foreach ($courses as $course) {
@@ -113,8 +121,9 @@ class CourseApiController extends BaseController
                 <div class="card post-container mb-3" style="width: 266px;">
                     <img class="post-thumb" src="'.$course->banner.'" alt="">
                     <div class="card-body d-flex flex-column justify-content-between">
-                        <a href="'.url($course->slug).'" class="course-title text-dark mb-2">'.$course->title.'</a>
-                        <p class="post-attrs mb-2"><span class="mr-2">15 Lessons</span><span>37m 57s</span></p>
+                        <a href="'.url('play/'.$course->slug.'/'.$course->lesson_slug.'/'.$course->video_slug).'" class="course-title text-dark mb-2">'.$course->title.'</a>
+                        <p class="post-attrs mb-3"><span class="mr-2">15 Lessons</span><span>37m 57s</span></p>
+                        <a href="'.url('play/'.$course->slug.'/'.$course->lesson_slug.'/'.$course->video_slug).'" class="btn btn-success btn-sl px-3" style="border-radius: 100px">Start Learn &rarr;</a>
                     </div>
                 </div>
             ';
